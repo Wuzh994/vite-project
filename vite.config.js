@@ -2,13 +2,13 @@ import path from 'path'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import zip from 'rollup-plugin-zip'
-import { obfuscator } from 'rollup-obfuscator';
+import { obfuscator } from 'rollup-obfuscator'
 
 // https://vitejs.dev/config/
-export default defineConfig(({command, mode}) => {
-  console.log({command}, {mode})
+export default defineConfig(({ command, mode }) => {
+  console.log({ command }, { mode })
 
-  if(mode === 'production') {
+  if (mode === 'production') {
     // TODO
   }
 
@@ -17,7 +17,7 @@ export default defineConfig(({command, mode}) => {
 
   return {
     plugins: [
-      vue(),
+      vue()
     ],
     resolve: {
       alias: {
@@ -39,11 +39,11 @@ export default defineConfig(({command, mode}) => {
           obfuscator({
             global: false,
             include: ['src/**/*.js', 'src/**/*.vue'],
-            exclude: 'node_modules',
+            exclude: 'node_modules'
           }),
-          zip(),
+          zip()
         ]
-      },
+      }
     }
   }
 })
