@@ -16,22 +16,21 @@ export default defineConfig(({ command, mode }) => {
   console.log(env)
 
   return {
-    plugins: [
-      vue()
-    ],
+    plugins: [vue()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
+        '@': path.resolve(__dirname, 'src'),
+      },
     },
     server: {
       proxy: {
         [env.VITE_APP_BASE_URL]: {
           target: 'https://api.github.com/',
           changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp(`^${env.VITE_APP_BASE_URL}`), '')
-        }
-      }
+          rewrite: (path) =>
+            path.replace(new RegExp(`^${env.VITE_APP_BASE_URL}`), ''),
+        },
+      },
     },
     build: {
       rollupOptions: {
@@ -39,11 +38,11 @@ export default defineConfig(({ command, mode }) => {
           obfuscator({
             global: false,
             include: ['src/**/*.js', 'src/**/*.vue'],
-            exclude: 'node_modules'
+            exclude: 'node_modules',
           }),
-          zip()
-        ]
-      }
-    }
+          zip(),
+        ],
+      },
+    },
   }
 })

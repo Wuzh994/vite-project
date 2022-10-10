@@ -1,12 +1,11 @@
 <script setup>
-import { getInfo } from '@/api/demo'
-import { useCounterStore } from '@/store/demo/counter'
+  import { getInfo } from '@/api/demo'
+  import { useCounterStore } from '@/store/demo/counter'
+  ;(async () => {
+    await getInfo()
+  })()
 
-(async () => {
-  await getInfo()
-})()
-
-const counterStore = useCounterStore()
+  const counterStore = useCounterStore()
 </script>
 
 <template>
