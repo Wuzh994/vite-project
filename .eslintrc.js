@@ -2,21 +2,21 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   extends: [
     'plugin:vue/vue3-recommended',
-    'standard'
+    'standard',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
-  overrides: [
-  ],
+  overrides: [],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: [
-    'vue'
-  ],
+  plugins: ['vue'],
   rules: {
     // import
     'import/order': 'error',
@@ -31,8 +31,8 @@ module.exports = {
         ignoreDeclarationSort: true,
         ignoreMemberSort: false,
         memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        allowSeparatedGroups: false
-      }
+        allowSeparatedGroups: false,
+      },
     ],
 
     // vue
@@ -44,26 +44,36 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
 
     'vue/attributes-order': ['error'],
-    'vue/component-tags-order': ['error', {
-      order: ['script', 'template', 'style']
-    }],
-    'vue/define-macros-order': ['error', {
-      order: ['defineProps', 'defineEmits']
-    }],
-    'vue/v-on-event-hyphenation': ['error', 'always', {
-      autofix: true
-    }],
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['script', 'template', 'style'],
+      },
+    ],
+    'vue/define-macros-order': [
+      'error',
+      {
+        order: ['defineProps', 'defineEmits'],
+      },
+    ],
+    'vue/v-on-event-hyphenation': [
+      'error',
+      'always',
+      {
+        autofix: true,
+      },
+    ],
     'vue/html-self-closing': [
       'error',
       {
         html: {
           void: 'always',
           normal: 'never',
-          component: 'always'
+          component: 'always',
         },
         svg: 'always',
-        math: 'always'
-      }
-    ]
-  }
+        math: 'always',
+      },
+    ],
+  },
 }

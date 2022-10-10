@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\""
   },
   "dependencies": {
     "axios": "^1.1.2",
@@ -22,18 +23,24 @@
     "@commitlint/config-conventional": "^17.1.0",
     "@vitejs/plugin-vue": "^3.1.0",
     "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-vue": "^9.6.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "rollup-obfuscator": "^3.0.1",
     "rollup-plugin-zip": "^1.0.3",
     "vite": "^3.1.0"
   },
   "lint-staged": {
-    "*.{vue,js}": "eslint --fix"
+    "*.{vue,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
