@@ -44,6 +44,7 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
 
     'vue/attributes-order': ['error'],
+    'vue/padding-line-between-blocks': ['error', 'always'],
     'vue/component-tags-order': [
       'error',
       {

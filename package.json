@@ -7,8 +7,12 @@
     "build:staging": "vite build --mode staging",
     "build:production": "vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx,.vue",
+    "eslint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue",
+    "stylelint": "stylelint \"./**/*.{css,scss,sass,vue,html}\"",
+    "stylelint:fix": "stylelint \"./**/*.{css,scss,sass,vue,html}\" --fix",
+    "lint": "npm run eslint & npm run stylelint",
+    "lint:fix": "npm run eslint:fix & npm run stylelint:fix",
     "prepare": "husky install",
     "prettier": "prettier . --write"
   },
@@ -32,14 +36,33 @@
     "eslint-plugin-vue": "^9.6.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
+    "postcss": "^8.4.17",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.5",
     "prettier": "^2.7.1",
     "rollup-obfuscator": "^3.0.1",
     "rollup-plugin-zip": "^1.0.3",
+    "stylelint": "^14.13.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-scss": "^7.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
     "vite": "^3.1.0"
   },
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.{js,ts,jsx,tsx}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
       "prettier --write"
     ]
   }
