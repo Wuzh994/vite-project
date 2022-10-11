@@ -1,8 +1,9 @@
 <script setup>
-  import { getInfo } from '@/api/demo'
+  import { addUser, getUserInfo } from '@/api/demo'
   import { useCounterStore } from '@/store/demo/counter'
   ;(async () => {
-    await getInfo()
+    await getUserInfo()
+    await addUser()
   })()
 
   const counterStore = useCounterStore()

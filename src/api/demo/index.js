@@ -1,8 +1,18 @@
 import request from '@/utils/request'
 
-export function getInfo() {
+export function getUserInfo() {
   return request({
-    url: '/users/github',
+    url: '/user/getUserInfo',
     method: 'get',
+  })
+}
+
+export function addUser() {
+  return request({
+    url: '/user/addUser',
+    method: 'post',
+    data: {
+      name: 'aa',
+    },
   })
 }
