@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "base-web",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -42,6 +42,7 @@
     "prettier": "^2.7.1",
     "rollup-obfuscator": "^3.0.1",
     "rollup-plugin-zip": "^1.0.3",
+    "sass": "^1.55.0",
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^7.0.0",
